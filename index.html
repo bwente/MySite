@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>
+			slider test
+		</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+		<style type="text/css">
+
+		#wrap{
+		font-family:"Lucida Grande", Arial;
+		width:800px;
+		margin:100px auto;
+		}
+		a:active, a:focus {outline: 0;}
+		h2,h3{margin:2px 0;}
+		h3{margin-bottom:100px;}
+
+		#override{
+			border: 1px solid #333;
+			position: relative;
+			text-align: center;
+			top: -4px;
+			height: 16px;
+			width:20px;
+			font-size:.6em;
+		}
+		#info{
+		margin:10px 0 0 0;
+		display:none;
+		background-color:#FFF9EB;
+		padding:8px;
+		}
+		#panel-contents{float:left;width:190px;position:relative;height:20px;}
+		#small-label{ height:4px; width:17px; overflow:hidden;float:left; }
+		#large-label{ height:18px; width:17px; overflow:hidden;float:left; }
+		#slider-bar{ background-color:#FFF5EC; height:16px; width:160px; position:relative; float:left;}
+		#old-bar{ background-color:#FFDFC0; height:16px; width:80px; position:absolute; float:left;}
+		#bullet-graph{ background-color:#F60; height:4px; width:100px; position:relative; float:left; top:6px;}
+		.ui-slider-handle{
+			background-color:#000;
+			height:16px;
+			width:3px;
+			overflow:hidden;
+			position:absolute;
+			z-index:99;
+			cursor: pointer;
+		}
+		#slider-bubble{border:1px solid #f90; height:26px; width:38px; overflow:hidden; position:absolute; top:-40px;padding:8px 0 0 0;text-align:center;font-weight:bold;color:#202020; }
+		#box{float:left;}
+
+		</style>
+		<script type="text/javascript">
+		$(document).ready(function(){
+		$('#slider-bubble').hide();
+			 $('#slider-bar').slider({
+					 /* handle: '#slider-handle',  */
+					 animate: true,
+					 min: 0,
+					 max: 160,
+					 value: 120,
+					 start: function(e,ui){
+							 $('#slider-bubble').fadeIn('fast');
+					 },
+					 stop: function(e,ui){
+							 $('#slider-bubble').fadeOut('fast');
+					 },
+					 slide: function(e,ui){
+							var mypos = $('#slider-bar').slider("value");
+							$("#override").attr("value", ui.value);
+							$('#slider-bubble').css('left', mypos).text(ui.value);
+							$("#slider-handle").css('left', mypos);
+					 }
+			 });
+			
+			$("input[type='text']").change( function() {
+			$('#slider-bar').slider('option', 'value', $(this).val());
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<h2>
+				Bullet Graph with Slide Controls
+			</h2>
+			<h3>
+				Adjust the slider to change the value of the Forecast Sellout
+			</h3>
+			<div id="panel-contents">
+				<div id="small-label"></div>
+				<div id="slider-bar">
+										<div id="old-bar"></div>
+					<div id="bullet-graph"></div>
+					<div id="slider-handle"></div>
+
+				</div>
+				<div id="large-label"></div>
+				<div id="slider-bubble"></div>
+			</div>
+			<div id="box"><input type='text' id='override' value='120' /></div>
+		</div>
+	</body>
+</html>
