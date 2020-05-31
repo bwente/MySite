@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Proof of Concept</title>
+	<meta name="author" content="Brian Wente">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript">
+	  $(document).ready(function() {
+		
+		
+		
+		$('.accordion').click(function() {
+			$(this).nextUntil('.accordion').fadeIn('slow');
+			$(this).fadeOut('fast');
+			return false;
+		}).nextAll('.data, .fakeHeader').hide();
+		
+		$('.fakeHeader').click(function() {
+			$(this).prev().fadeIn('fast');
+			$(this).fadeOut('fast');
+			$(this).nextUntil('.accordion').fadeOut('fast');
+			return false;
+		})		
+		
+		
+	  });
+	
+
+	</script>
+	<style>
+		body {
+			font: 12px/18px "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
+		}
+		.selected {
+			color: #900;
+		}
+		
+		table, th, td {
+			border:1px solid #eee;
+		}
+		
+		tbody th {
+			cursor: pointer;
+		}
+		table {
+			width:800px;
+			border-collapse:collapse;
+		}
+		.accordion {
+			background: #ddd;
+		}
+		.fakeHeader {
+			background: #eee;
+		}
+	</style>
+</head>
+<body>
+<table>
+	<thead>
+		<tr>
+			<th>Dayname</th>
+			<th>Daypart</th>
+			<th>60's</th>
+			<th>30's</th>
+			<th>15's</th>
+			<th>Max</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="accordion">
+			<th>Monday</th>
+			<th>AM</th>
+			<th>$160</th>
+			<th>$80</th>
+			<th>$40</th>
+			<th>$180</th>
+		</tr>
+		<tr class="fakeHeader">
+			<th>Monday</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr class="data">
+			<td></td>
+			<td>AM</td>
+			<td>$160</td>
+			<td>$80</td>
+			<td>$40</td>
+			<td>$180</td>
+		</tr>
+		<tr class="data">
+			<td></td>
+			<td>MD</td>
+			<td>$160</td>
+			<td>$80</td>
+			<td>$40</td>
+			<td>$180</td>
+		</tr>
+		<tr class="data">
+			<td></td>
+			<td>PM</td>
+			<td>$160</td>
+			<td>$80</td>
+			<td>$40</td>
+			<td>$180</td>
+		</tr>
+		
+		<tr class="accordion">
+			<th>Tuesday</th>
+			<th>AM</th>
+			<th>$160</th>
+			<th>$80</th>
+			<th>$40</th>
+			<th>$180</th>
+		</tr>
+		<tr class="fakeHeader">
+			<th>Tuesday</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr class="data">
+			<td></td>
+			<td>AM</td>
+			<td>$160</td>
+			<td>$80</td>
+			<td>$40</td>
+			<td>$180</td>
+		</tr>
+		<tr class="data">
+			<td></td>
+			<td>MD</td>
+			<td>$160</td>
+			<td>$80</td>
+			<td>$40</td>
+			<td>$180</td>
+		</tr>
+		<tr class="data">
+			<td></td>
+			<td>PM</td>
+			<td>$160</td>
+			<td>$80</td>
+			<td>$40</td>
+			<td>$180</td>
+		</tr>
+		
+		<tr class="accordion">
+			<th>Wednesday</th>
+			<th>AM</th>
+			<th>$160</th>
+			<th>$80</th>
+			<th>$40</th>
+			<th>$180</th>
+		</tr>
+		<tr class="fakeHeader">
+			<th>Wednesday</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr class="data">
+			<td></td>
+			<td>AM</td>
+			<td>$160</td>
+			<td>$80</td>
+			<td>$40</td>
+			<td>$180</td>
+		</tr>
+		<tr class="data">
+			<td></td>
+			<td>MD</td>
+			<td>$160</td>
+			<td>$80</td>
+			<td>$40</td>
+			<td>$180</td>
+		</tr>
+		<tr class="data">
+			<td></td>
+			<td>PM</td>
+			<td>$160</td>
+			<td>$80</td>
+			<td>$40</td>
+			<td>$180</td>
+		</tr>
+	</tbody>
+</table>
+	
+</body>
+</html>
